@@ -4,6 +4,9 @@ $margin: 20px;
 body {
     background: none;
 }
+[data-audio-quote] {
+    position: relative;
+}
 #controls {
     position: absolute;
     z-index: 100;
@@ -59,12 +62,7 @@ body {
         background: #ff001e;
     }
 }
-.audio-quote-widget-container {
-        top: 0;
-        position: absolute;
 
-
-}
 #progress {
     font-family: Publik;
     color: #ff001e

@@ -30,11 +30,11 @@ export default class AudioQuote {
 
     build() {
 
-        this.canvas = document.createElement('canvas');
+        this.visualizerElement = document.createElement('div');
 
-        this.container.appendChild(this.canvas)
+        this.container.appendChild(this.visualizerElement)
 
-        this.visualizer = new Visualizer(this.canvas, this.element);
+        this.visualizer = new Visualizer(this.visualizerElement, this.element);
 
         this.audio = document.createElement('audio');
         this.audio.setAttribute('preload', 'auto')
