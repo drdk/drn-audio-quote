@@ -50,6 +50,8 @@ export default class AudioQuote {
             }
         }, false);
 
+        this.audio.load();
+
         this.audio.addEventListener('ended', () => {
             console.log('ended')
             console.log('plyeing: ' + this.audio.paused)
