@@ -14,10 +14,11 @@ export default class Visualizer {
 
 
 
-    for (let n=0; n <= 5; n++) {
+    for (let n=0; n < 10; n++) {
       const block = document.createElement('div');
       block.classList.add('visualizer-block')
       this.element.appendChild(block);
+
 
     }
 

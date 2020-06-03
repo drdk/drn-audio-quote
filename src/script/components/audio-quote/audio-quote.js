@@ -78,7 +78,7 @@ export default class AudioQuote {
             </style>
             <g>
                 <g>
-                    <circle class="bg" cx="25.2" cy="25.2" r="25"/>
+                    <circle class="bg" cx="25" cy="25" r="25"/>
                 </g>
                 <g>
                     <polygon class="color" points="16.7,21.2 12.7,21.2 12.7,29.3 16.7,29.3 23.2,34 23.2,16.5 		"/>
