@@ -90,7 +90,6 @@ export default class AudioQuote {
                 </g>
             </g>
             </svg>
-
         `;
 
         this.controls = document.createElement('div');
