@@ -8,6 +8,7 @@ export default class AudioQuote {
     constructor() {
         this.element  = document.querySelector('[data-audio-quote]');
 
+        this.loaded = false;
 
         this.container = this.element.querySelector('.audio-quote-widget-container');
 
@@ -38,12 +39,23 @@ export default class AudioQuote {
 
         this.audio = document.createElement('audio');
         this.audio.setAttribute('preload', 'auto')
-        this.audio.setAttribute('loop', true)
+
         this.audio.src = this.file;
 
         this.audio.addEventListener('canplaythrough', () => {
             console.log('loaded')
-            this.setLoaded()
+            if (!this.loaded) {
+                this.loaded = true;
+                this.setLoaded()
+            }
+        }, false);
+
+        this.audio.addEventListener('ended', () => {
+            console.log('ended')
+            console.log('plyeing: ' + this.audio.paused)
+            this.progress.classList.remove('playing')
+            this.playing = false;
+            this.toggleButton.classList.toggle("playing", this.playing);
         }, false);
 
         window.addEventListener('resize',  () => {
@@ -119,15 +131,26 @@ export default class AudioQuote {
         this.updateProgress()
 
         this.toggleButton.addEventListener('click', () => {
-            if (this.playing) {
-                this.audio.pause()
-            } else {
-                this.audio.play()
-            }
-            this.playing = !this.playing;
-            console.log('Palying : ' + this.playing)
-            this.toggleButton.classList.toggle("playing", this.playing);
+            this.togglePlay()
         })
+
+    }
+    togglePlay() {
+        console.log('plyeing: ' + this.audio.paused)
+        console.log('TOGGLE: ' + this.playing)
+        if (this.playing) {
+            this.audio.pause()
+            this.progress.classList.remove('playing')
+            this.playing = false;
+        } else {
+            this.audio.play()
+            this.progress.classList.add('playing')
+            this.playing = true;
+        }
+
+        console.log('Palying : ' + this.playing)
+        this.toggleButton.classList.toggle("playing", this.playing);
+
 
     }
     setProgress() {
