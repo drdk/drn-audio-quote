@@ -58,14 +58,14 @@ export default class AudioQuote {
             this.toggleButton.classList.toggle("playing", this.playing);
         }, false);
 
-        window.addEventListener('resize',  () => {
+        /*window.addEventListener('resize',  () => {
 
             clearTimeout(this.timeout);
             // start timing for event "completion"
             this.timeout = setTimeout(() => {
                 this.handleResize();
             }, 200);
-        });
+        });*/
 
         this.toggleButton = document.createElement('button')
         this.toggleButton.id = 'toggle-button'
