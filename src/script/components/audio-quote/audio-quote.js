@@ -60,18 +60,6 @@ export default class AudioQuote {
 
         window.addEventListener('resize',  () => {
 
-
-            // only run if we're not throttled
-            /*if (!this.throttled) {
-                // actual callback action
-                this.handleResize();
-                // we're throttled!
-                this.throttled = true;
-                // set a timeout to un-throttle
-                setTimeout(function () {
-                    this.throttled = false;
-                }, 250);
-            }*/
             clearTimeout(this.timeout);
             // start timing for event "completion"
             this.timeout = setTimeout(() => {
